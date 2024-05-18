@@ -1,7 +1,7 @@
 '''
 Data Configuration
 '''
-DATASET = "./phiDataset.csv"
+DATASET_PATH = "./phiDataset.csv"
 DATASET_TEXT_FIELD = "prompt_response"
 
 '''

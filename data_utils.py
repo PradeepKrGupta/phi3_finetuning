@@ -1,15 +1,15 @@
+import pandas as pd
 import datasets
-from datasets import load_dataset
 import config
 
-def download(mode):
-    print("Downloading Dataset - ", config.DATASET, "...")
-    dataset = load_dataset(config.DATASET, split=mode)
-    return dataset
+file_path = "./phiDataset.csv"
+def load_local_dataset(file_path):
+    print("Loading dataset from - ", file_path, "...")
+    dataset_df = pd.read_csv(file_path)
+    return dataset_df
 
-def prepare_prompts_responses(dataset):
+def prepare_prompts_responses(dataset_df):
     print("Preparing Prompt and Assistant....")
-    dataset_df = dataset.to_pandas()
     user_prompters = dataset_df[(dataset_df.role == "prompter")]
     user_prompters = user_prompters.set_index("message_id")
     assistants = dataset_df[(dataset_df.role == "assistant") & (dataset_df["rank"] == 0.0)]
@@ -25,7 +25,7 @@ def prepare_prompts_responses(dataset):
 
 def preparedata(mode):
     print("Preparing data for - ", mode, "...")
-    dataset = download(mode=mode)
-    prompts_responses = prepare_prompts_responses(dataset)
+    dataset_df = load_local_dataset(config.DATASET_PATH)
+    prompts_responses = prepare_prompts_responses(dataset_df)
     prompts_responses_dataset = datasets.Dataset.from_pandas(prompts_responses)
     return prompts_responses_dataset
