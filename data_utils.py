@@ -14,7 +14,7 @@ def prepare_prompts_responses(dataset_df):
     prompts_responses = []
     for _, record in dataset_df.iterrows():
         prompt_text = record['Hook']
-        response_text = record['Body']
+        response_text = record['Body ']
         prompt_response = "### Human: " + prompt_text + " ### Assistant: " + response_text
         prompts_responses.append({config.DATASET_TEXT_FIELD: prompt_response})
     
