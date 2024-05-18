@@ -2,7 +2,7 @@ from trl import SFTTrainer
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments
 import config
 
-from secrets import HF_TOKEN
+from my_secrets import HF_TOKEN
 
 def load_model(quantization_config):
     model = AutoModelForCausalLM.from_pretrained(
