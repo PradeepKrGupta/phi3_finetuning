@@ -1,7 +1,7 @@
 '''
 Data Configuration
 '''
-DATASET = "OpenAssistant/oasst1"
+DATASET = "./phiDataset.csv"
 DATASET_TEXT_FIELD = "prompt_response"
 
 '''
