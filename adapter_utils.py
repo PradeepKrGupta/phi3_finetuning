@@ -1,8 +1,13 @@
-from transformers import BitsAndBytesConfig
+from peft import LoraConfig
+import config
 
-bnb_config = BitsAndBytesConfig(
-    load_in_8bit=True, # Set to True to use 8-bit precision
-    torch_dtype=torch.float16 # Use float16 for model precision
-)
-
-model = AutoModelForCausalLM.from_pretrained(model_name, config=bnb_config)
+def load_adapter(target_modules):
+    peft_config = LoraConfig(
+        lora_alpha=config.LORA_ALPHA,
+        lora_dropout=config.LORA_DROPOUT,
+        r=config.LORA_RANK,
+        bias="none",
+        task_type=config.TASK_TYPE,
+        target_modules=target_modules
+    )
+    return peft_config
