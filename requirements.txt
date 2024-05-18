@@ -1,4 +1,9 @@
-transformers
-datasets
 torch
-streamlit
+trl
+transformers
+accelerate
+peft
+einops
+datasets
+bitsandbytes
+scipy
