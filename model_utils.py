@@ -2,14 +2,19 @@ from trl import SFTTrainer
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments
 import config
 
+from secrets import HF_TOKEN
+
 def load_model(quantization_config):
     model = AutoModelForCausalLM.from_pretrained(
         config.MODEL_NAME,
         quantization_config=quantization_config,
-        trust_remote_code=config.TRUST_REMOTE_CODE
+        trust_remote_code=config.TRUST_REMOTE_CODE,
+        use_auth_token=HF_TOKEN  # Add this line
     )
     model.config.use_cache = config.ENABLE_MODEL_CONFIG_CACHE
     return model
+
+
 
 def load_tokenizers():
     tokenizer = AutoTokenizer.from_pretrained(
