@@ -7,7 +7,7 @@ DATASET_TEXT_FIELD = "prompt_response"
 '''
 Model Configuration
 '''
-MODEL_NAME = "microsoft/phi-3"
+MODEL_NAME = "microsoft/Phi-3-mini-4k-instruct"
 TRUST_REMOTE_CODE = True
 ENABLE_MODEL_CONFIG_CACHE = False
 

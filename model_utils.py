@@ -32,13 +32,14 @@ def load_training_arguments():
         save_steps=config.SAVE_STEPS,
         logging_steps=config.LOGGING_STEPS,
         learning_rate=config.LEARNING_RATE,
-        fp16=config.ENABLE_FP_16,
+        fp16=True,  # Enable mixed precision training
         max_grad_norm=config.MAX_GRAD_NORM,
         max_steps=config.MAX_STEPS,
         warmup_ratio=config.WARMUP_RATIO,
         gradient_checkpointing=config.ENABLE_GRADIENT_CHECKPOINTING
     )
     return training_arguments
+
 
 def load_trainer(model, training_dataset, peft_config, tokenizer, training_arguments):
     trainer = SFTTrainer(
