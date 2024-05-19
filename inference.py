@@ -10,3 +10,7 @@ def predict(prompt, model, tokenizer, max_length):
     )
     result = pipe(f"<s>[INST] {prompt} [/INST]")
     return result[0]['generated_text']
+
+
+
+

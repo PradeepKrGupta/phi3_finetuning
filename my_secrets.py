@@ -1,1 +1,1 @@
-HF_TOKEN = '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'
+HF_TOKEN = 'YOUR TOKEN KEY'

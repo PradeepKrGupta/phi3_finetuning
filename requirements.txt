@@ -7,3 +7,4 @@ einops
 datasets
 bitsandbytes
 scipy
+streamlit
